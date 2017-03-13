@@ -1,10 +1,10 @@
 #!/bin/bash
+BASEDIR=$PWD
+echo Installing utility in current directory
+mkdir ~/.ethkillwifi
 
-#desktopfrom=/usr/share/applications/dr.desktop
-#desktopfinal=$HOME/$client.desktop
 desktopfinal=$HOME/.local/share/applications/ethkillwifi.desktop
 planklauncher=$HOME/.config/plank/dock1/launchers/ethkillwifi.dockitem
-#planklauncher=$HOME/$client.dockitem
 
 echo "[Desktop Entry]
 Name=Kill wifi Monitor
@@ -20,32 +20,32 @@ X-Ayatana-Desktop-Shortcuts=Show_Mon;Select_Mon;Disable_Mon;Enable_Mon;DisableWi
 
 [Show_Mon Shortcut Group]
 Name=Show Connection
-Exec=bash /home/antonio/.ethkillwifi/show_connections.sh
+Exec=bash $BASEDIR/show_connections.sh
 TargetEnvironment=Unity
 
 [Select_Mon Shortcut Group]
 Name=Select Connection
-Exec=bash /home/antonio/.ethkillwifi/select_connections.sh
+Exec=bash $BASEDIR/select_connections.sh
 TargetEnvironment=Unity
 
 [Disable_Mon Shortcut Group]
 Name=Disable Monitor
-Exec=bash /home/antonio/.ethkillwifi/ethkillwifi_cmd.sh off
+Exec=bash $BASEDIR/ethkillwifi_cmd.sh off
 TargetEnvironment=Unity
 
 [Enable_Mon Shortcut Group]
 Name=Enable Monitor
-Exec=bash /home/antonio/.ethkillwifi/ethkillwifi_cmd.sh on
+Exec=bash $BASEDIR/ethkillwifi_cmd.sh on
 TargetEnvironment=Unity
 
 [DisableWifi Shortcut Group]
 Name=Disable Wifi
-Exec=bash /home/antonio/.ethkillwifi/ethkillwifi_cmd.sh wifioff
+Exec=bash $BASEDIR/ethkillwifi_cmd.sh wifioff
 TargetEnvironment=Unity
 
 [EnableWifi Shortcut Group]
 Name=Enable Wifi
-Exec=bash /home/antonio/.ethkillwifi/ethkillwifi_cmd.sh wifion
+Exec=bash $BASEDIR/ethkillwifi_cmd.sh wifion
 TargetEnvironment=Unity
 " > "$desktopfinal"
 
