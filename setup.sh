@@ -16,7 +16,7 @@ Type=Application
 Icon=ethkilloff
 Categories=Network;FileTransfer;
 StartupNotify=false
-X-Ayatana-Desktop-Shortcuts=Show_Mon;Select_Mon;Disable_Mon;Enable_Mon;DisableWifi;EnableWifi
+X-Ayatana-Desktop-Shortcuts=Show_Mon;Select_Mon;Renew_Conn;Disable_Mon;Enable_Mon;DisableWifi;EnableWifi
 
 [Show_Mon Shortcut Group]
 Name=Show Connection
@@ -26,6 +26,11 @@ TargetEnvironment=Unity
 [Select_Mon Shortcut Group]
 Name=Select Connection
 Exec=bash $BASEDIR/select_connections.sh
+TargetEnvironment=Unity
+
+[Renew_Conn Shortcut Group]
+Name=Renew Connection
+Exec=bash $BASEDIR/renew_connection.sh
 TargetEnvironment=Unity
 
 [Disable_Mon Shortcut Group]

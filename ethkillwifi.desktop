@@ -8,34 +8,44 @@ Type=Application
 Icon=ethprimary
 Categories=Network;FileTransfer;
 StartupNotify=false
-X-Ayatana-Desktop-Shortcuts=Show_Mon;Select_Mon;Disable_Mon;Enable_Mon;DisableWifi;EnableWifi
+X-Ayatana-Desktop-Shortcuts=Show_Conns;Select_Conn;Renew_Conn;Disable_Mon;Enable_Mon;DisableWifi;EnableWifi;Restart
 
-[Show_Mon Shortcut Group]
+[Show_Conns Shortcut Group]
 Name=Show Connection
-Exec=bash /home/antonio/.ethkillwifi/show_connections.sh
+Exec=bash /home/antonio/ethkillwifi-v.0.91/show_connections.sh
 TargetEnvironment=Unity
 
-[Select_Mon Shortcut Group]
+[Select_Conn Shortcut Group]
 Name=Select Connection
-Exec=bash /home/antonio/.ethkillwifi/select_connections.sh
+Exec=bash /home/antonio/ethkillwifi-v.0.91/select_connections.sh
+TargetEnvironment=Unity
+
+[Renew_Conn Shortcut Group]
+Name=Renew Connection
+Exec=bash /home/antonio/ethkillwifi-v.0.91/renew_connection.sh
 TargetEnvironment=Unity
 
 [Disable_Mon Shortcut Group]
 Name=Disable Monitor
-Exec=bash /home/antonio/.ethkillwifi/ethkillwifi_cmd.sh off
+Exec=bash /home/antonio/ethkillwifi-v.0.91/ethkillwifi_cmd.sh off
 TargetEnvironment=Unity
 
 [Enable_Mon Shortcut Group]
 Name=Enable Monitor
-Exec=bash /home/antonio/.ethkillwifi/ethkillwifi_cmd.sh on
+Exec=bash /home/antonio/ethkillwifi-v.0.91/ethkillwifi_cmd.sh on
 TargetEnvironment=Unity
 
 [DisableWifi Shortcut Group]
 Name=Disable Wifi
-Exec=bash /home/antonio/.ethkillwifi/ethkillwifi_cmd.sh wifioff
+Exec=bash /home/antonio/ethkillwifi-v.0.91/ethkillwifi_cmd.sh wifioff
 TargetEnvironment=Unity
 
 [EnableWifi Shortcut Group]
-Name=Enable Wifi 
-Exec=bash /home/antonio/.ethkillwifi/ethkillwifi_cmd.sh wifion
+Name=Enable Wifi
+Exec=bash /home/antonio/ethkillwifi-v.0.91/ethkillwifi_cmd.sh wifion
+TargetEnvironment=Unity
+
+[Restart Shortcut Group]
+Name=Restart Monitor
+Exec=bash /home/antonio/ethkillwifi-v.0.91/ethkillwifi_cmd.sh restart
 TargetEnvironment=Unity

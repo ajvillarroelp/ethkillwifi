@@ -5,6 +5,22 @@ desktopfinal=$HOME/.local/share/applications/ethkillwifi.desktop
 STATFILE=$HOME/.ethkillwifi/ethkillwifi.status
 WIFIPATH=$(ls -1d /sys/class/net/w* | head -1)
 WIFICARD=$(basename $WIFIPATH)
+
+if [[ $1 == "restart" ]] ; then
+
+	MONPID=$(ps -ef|grep ethkillwifi.pl | grep -v atom | grep -v grep | tr -s " " | cut -d" " -f 2)
+	MONSCR=$(ps -ef|grep ethkillwifi.pl | grep -v atom | grep -v grep | tr -s " " | cut -d" " -f 9)
+	if [[ $MONPID == "" ]];then
+		# not running
+		perl $MONSCR &
+	else
+		kill $MONPID
+		perl $MONSCR &
+	fi
+	notify-send -a EthKillWifi  "Monitor restarted!"
+    exit 0
+fi
+
 if [[ $1 == "on" ]] ; then
 
 	rm -f "$HOME/.ethkillwifi/ethkillwifi.disable"
