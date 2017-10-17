@@ -4,7 +4,16 @@ if [[ ! -z "$LINE" ]] ; then
     NLINE=$(echo $LINE | cut -d: -f 1)
     CONNAME=$( nmcli con show | tr -s " " | cut -d " " -f 1 | grep -v NAME | sed -n 1p )
     echo 3 $CONNAME
-    zenity  --title "Active Connections" --info --text "\nActive connection: $CONNAME"
+
+    nline=$(nmcli dev show | grep -n $CONNAME | cut -d: -f 1)
+    if [[ "$nline" != "" ]]; then
+        
+        nipline=$(echo "$nline + 3" | bc)        
+        ipaddr=$(nmcli dev show | sed -n "${nipline}p" | tr -s " " |  cut -d: -f 2)
+        notify-send "Kill wifi Mon" "Conn $CONNAME: Got IP $ipaddr"
+    fi
+    
+    #zenity  --title "Active Connections" --info --text "\nActive connection: $CONNAME"
 else
     zenity  --title "Active Connections" --info --text "\nNo connections active"
 fi
