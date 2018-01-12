@@ -8,7 +8,7 @@ if [[ ! -z "$LINE" ]] ; then
     nline=$(nmcli dev show | grep -n $CONNAME | cut -d: -f 1)
     if [[ "$nline" != "" ]]; then
         
-        nipline=$(echo "$nline + 3" | bc)        
+        nipline=$(echo "$nline + 2" | bc)        
         ipaddr=$(nmcli dev show | sed -n "${nipline}p" | tr -s " " |  cut -d: -f 2)
         notify-send "Kill wifi Mon" "Conn $CONNAME: Got IP $ipaddr"
     fi
