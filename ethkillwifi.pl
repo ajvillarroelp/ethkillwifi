@@ -7,7 +7,6 @@ use strict;
 ########################################################
 my $ETHCARD = "enp3s0f2";
 my $WLANCARD = "wlp2s0";
-my $USBCARD = "enp0s20u";
 my $STATPATH = "/sys/class/net";
 ########################################################
 
@@ -70,7 +69,7 @@ for(;;){
 	$wifistat=`cat /sys/class/net/$WLANCARD/link_mode`;
 	chomp($wifistat);
 
-	@usbfiles = <$STATPATH/enp?s??u?>; # mobile usb tether
+	@usbfiles = <$STATPATH/enp?s??*>; # mobile usb tether
 	$usbstat = scalar @usbfiles;
 
 	if ( $DEBUG == 1 ) {
